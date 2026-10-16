@@ -4,10 +4,6 @@ A Terraform-built AWS detection and response lab. I stand up a realistic environ
 
 > **Status: Phases 1–6 complete. 8/9 simulated attacks detected and auto-remediated in 2–11 seconds; the 9th was blocked outright by a Phase 2 control.** This is a build-in-public project; each phase gets a writeup as it lands. Follow along below.
 
-## Why this exists
-
-Most cloud security learning stops at "enable GuardDuty." This lab goes end to end: build → monitor → attack → detect → respond, with every step reproducible from code. The goal is to practice the actual job of a cloud security / detection engineer — and to prove it publicly.
-
 ## Architecture
 
 ```mermaid
