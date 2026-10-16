@@ -1,0 +1,17 @@
+{
+  "id": "DL-003",
+  "name": "security-group-open-to-world",
+  "title": "Security group opened to the internet",
+  "description": "An ingress rule allowing 0.0.0.0/0 or ::/0 was added. The responder revokes exactly the offending rules unless the group is tagged detlab:allow-public=true.",
+  "attack": "T1562.007 Impair Defenses: Disable or Modify Cloud Firewall",
+  "severity": "high",
+  "response": "revoke_open_ingress",
+  "event_pattern": {
+    "detail-type": ["AWS API Call via CloudTrail"],
+    "detail": {
+      "eventSource": ["ec2.amazonaws.com"],
+      "eventName": ["AuthorizeSecurityGroupIngress"],
+      "errorCode": [{ "exists": false }]
+    }
+  }
+}

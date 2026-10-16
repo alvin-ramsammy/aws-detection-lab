@@ -1,0 +1,15 @@
+{
+  "id": "DL-001",
+  "name": "root-account-usage",
+  "title": "Root account used",
+  "description": "Any console sign-in or API call made as the root user. Root is locked away after Phase 1, so any use is either me doing a root-only task or a compromise.",
+  "attack": "T1078.004 Valid Accounts: Cloud Accounts",
+  "severity": "high",
+  "response": "notify",
+  "event_pattern": {
+    "detail-type": ["AWS API Call via CloudTrail", "AWS Console Sign In via CloudTrail"],
+    "detail": {
+      "userIdentity": { "type": ["Root"] }
+    }
+  }
+}

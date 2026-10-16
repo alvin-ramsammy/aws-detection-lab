@@ -1,0 +1,9 @@
+# Copy to terraform.tfvars (gitignored) and fill in.
+account_id  = "123456789012"
+
+# Your day-to-day admin IAM user: responders alert on it but never quarantine it.
+protected_iam_users = ["your-admin-user"]
+
+# region             = "us-east-1"
+# enable_workload    = true
+# enable_security_hub = true

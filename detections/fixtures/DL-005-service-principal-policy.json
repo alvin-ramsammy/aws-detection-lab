@@ -1,0 +1,56 @@
+{
+  "version": "0",
+  "id": "eb-PutBucketPolicy",
+  "detail-type": "AWS API Call via CloudTrail",
+  "source": "aws.s3",
+  "account": "111122223333",
+  "time": "2026-10-15T12:00:00Z",
+  "region": "us-east-1",
+  "resources": [],
+  "detail": {
+    "eventVersion": "1.09",
+    "userIdentity": {
+      "type": "IAMUser",
+      "principalId": "AIDAEXAMPLE",
+      "arn": "arn:aws:iam::111122223333:user/lab-admin",
+      "accountId": "111122223333",
+      "accessKeyId": "AKIAEXAMPLE",
+      "userName": "lab-admin"
+    },
+    "eventTime": "2026-10-15T12:00:00Z",
+    "eventSource": "s3.amazonaws.com",
+    "eventName": "PutBucketPolicy",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "203.0.113.10",
+    "userAgent": "aws-cli/2.17.0",
+    "requestParameters": {
+      "bucketName": "detlab-logs-111122223333-us-east-1",
+      "bucketPolicy": {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Principal": {
+              "Service": "cloudtrail.amazonaws.com"
+            },
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::detlab-logs-111122223333-us-east-1/*",
+            "Condition": {
+              "StringEquals": {
+                "aws:SourceArn": "arn:aws:cloudtrail:us-east-1:111122223333:trail/detlab-trail"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "responseElements": null,
+    "requestID": "req-1",
+    "eventID": "evt-PutBucketPolicy",
+    "readOnly": false,
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "111122223333",
+    "eventCategory": "Management"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "DL-005",
+  "name": "s3-bucket-policy-backdoor",
+  "title": "S3 bucket policy grants access to the public or another account",
+  "description": "A bucket policy was written that allows anonymous access or a principal from an outside account. The responder deletes the policy, except on the lab's own log buckets, where it only alerts.",
+  "attack": "T1537 Transfer Data to Cloud Account",
+  "severity": "high",
+  "response": "s3_policy_guard",
+  "event_pattern": {
+    "detail-type": ["AWS API Call via CloudTrail"],
+    "detail": {
+      "eventSource": ["s3.amazonaws.com"],
+      "eventName": ["PutBucketPolicy"],
+      "errorCode": [{ "exists": false }]
+    }
+  }
+}

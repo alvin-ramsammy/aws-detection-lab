@@ -1,0 +1,16 @@
+{
+  "id": "DL-006",
+  "name": "guardduty-finding",
+  "title": "GuardDuty finding (medium or higher)",
+  "description": "Forwards GuardDuty findings with severity 4.0 or above to Slack. GuardDuty covers what rules on raw API calls can't, like instance credentials being used from outside AWS.",
+  "attack": "Varies by finding (e.g. T1552.005 Unsecured Credentials: Cloud Instance Metadata API)",
+  "severity": "from-finding",
+  "response": "notify",
+  "event_pattern": {
+    "source": ["aws.guardduty"],
+    "detail-type": ["GuardDuty Finding"],
+    "detail": {
+      "severity": [{ "numeric": [">=", 4] }]
+    }
+  }
+}

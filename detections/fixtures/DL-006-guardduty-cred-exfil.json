@@ -1,0 +1,26 @@
+{
+  "version": "0",
+  "id": "eb-gd",
+  "detail-type": "GuardDuty Finding",
+  "source": "aws.guardduty",
+  "account": "111122223333",
+  "time": "2026-10-15T12:05:00Z",
+  "region": "us-east-1",
+  "resources": [],
+  "detail": {
+    "schemaVersion": "2.0",
+    "accountId": "111122223333",
+    "region": "us-east-1",
+    "id": "gd-finding-1",
+    "type": "UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration.OutsideAWS",
+    "title": "Credentials for instance role detlab-workload used from external IP address.",
+    "severity": 8,
+    "resource": {
+      "resourceType": "AccessKey",
+      "accessKeyDetails": {
+        "userName": "detlab-workload",
+        "userType": "AssumedRole"
+      }
+    }
+  }
+}

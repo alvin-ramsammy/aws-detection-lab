@@ -3,3 +3,12 @@
 .terraform/
 *.pem
 .env
+terraform.tfvars
+.terraform.tfstate.lock.info
+.build/
+__pycache__/
+.pytest_cache/
+.venv/
+slackbot.md
+*accessKeys*.csv
+*credentials*.csv

@@ -1,0 +1,23 @@
+{
+  "id": "DL-004",
+  "name": "iam-persistence",
+  "title": "IAM persistence: credentials or admin rights granted to a user",
+  "description": "An access key or console password was created for another user, or admin-level permissions were attached to a user. The responder quarantines the target user (deny-all policy, keys deactivated, console password removed) unless the user is protected.",
+  "attack": "T1098.001 Account Manipulation: Additional Cloud Credentials",
+  "severity": "high",
+  "response": "quarantine_iam_user",
+  "event_pattern": {
+    "detail-type": ["AWS API Call via CloudTrail"],
+    "detail": {
+      "eventSource": ["iam.amazonaws.com"],
+      "eventName": [
+        "CreateAccessKey",
+        "CreateLoginProfile",
+        "UpdateLoginProfile",
+        "AttachUserPolicy",
+        "PutUserPolicy"
+      ],
+      "errorCode": [{ "exists": false }]
+    }
+  }
+}

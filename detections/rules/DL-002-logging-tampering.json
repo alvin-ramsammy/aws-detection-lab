@@ -1,0 +1,31 @@
+{
+  "id": "DL-002",
+  "name": "logging-tampering",
+  "title": "Security logging disabled or modified",
+  "description": "Someone stopped, deleted, or reconfigured CloudTrail, VPC Flow Logs, GuardDuty, or Security Hub. If a trail was stopped, the responder starts it again.",
+  "attack": "T1562.008 Impair Defenses: Disable or Modify Cloud Logs",
+  "severity": "critical",
+  "response": "restore_logging",
+  "event_pattern": {
+    "detail-type": ["AWS API Call via CloudTrail"],
+    "detail": {
+      "eventSource": [
+        "cloudtrail.amazonaws.com",
+        "ec2.amazonaws.com",
+        "guardduty.amazonaws.com",
+        "securityhub.amazonaws.com"
+      ],
+      "eventName": [
+        "StopLogging",
+        "DeleteTrail",
+        "UpdateTrail",
+        "PutEventSelectors",
+        "DeleteFlowLogs",
+        "DeleteDetector",
+        "UpdateDetector",
+        "DisableSecurityHub"
+      ],
+      "errorCode": [{ "exists": false }]
+    }
+  }
+}

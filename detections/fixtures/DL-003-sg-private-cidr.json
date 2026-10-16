@@ -1,0 +1,52 @@
+{
+  "version": "0",
+  "id": "eb-AuthorizeSecurityGroupIngress",
+  "detail-type": "AWS API Call via CloudTrail",
+  "source": "aws.ec2",
+  "account": "111122223333",
+  "time": "2026-10-15T12:00:00Z",
+  "region": "us-east-1",
+  "resources": [],
+  "detail": {
+    "eventVersion": "1.09",
+    "userIdentity": {
+      "type": "IAMUser",
+      "principalId": "AIDAEXAMPLE",
+      "arn": "arn:aws:iam::111122223333:user/lab-admin",
+      "accountId": "111122223333",
+      "accessKeyId": "AKIAEXAMPLE",
+      "userName": "lab-admin"
+    },
+    "eventTime": "2026-10-15T12:00:00Z",
+    "eventSource": "ec2.amazonaws.com",
+    "eventName": "AuthorizeSecurityGroupIngress",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "203.0.113.10",
+    "userAgent": "aws-cli/2.17.0",
+    "requestParameters": {
+      "groupId": "sg-0123456789abcdef0"
+    },
+    "responseElements": {
+      "securityGroupRuleSet": {
+        "items": [
+          {
+            "groupId": "sg-0123456789abcdef0",
+            "securityGroupRuleId": "sgr-0bbb",
+            "isEgress": false,
+            "ipProtocol": "tcp",
+            "fromPort": 443,
+            "toPort": 443,
+            "cidrIpv4": "10.20.0.0/16"
+          }
+        ]
+      }
+    },
+    "requestID": "req-1",
+    "eventID": "evt-AuthorizeSecurityGroupIngress",
+    "readOnly": false,
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "111122223333",
+    "eventCategory": "Management"
+  }
+}
